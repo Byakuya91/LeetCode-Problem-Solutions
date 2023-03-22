@@ -19,6 +19,6 @@ class Solution:
                 
           # STEP FOUR:  Pop  the item off the hash-table but specify position zero so as it removes the first item inside the 
           # the hash-table.
-        print(hash_table)
+        # print(hash_table)
         return hash_table.popitem()[0]
                 
