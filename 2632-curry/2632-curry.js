@@ -3,28 +3,49 @@
  * @return {Function}
  */
 var curry = function(fn) {
-        // SOLUTION ONE: iterative
-        let nums = [];
+   
+    
+    
+    
+//         // SOLUTION ONE: iterative
+//         let nums = [];
 
-    return function curried(...args) {
-          nums = [...nums,...args];
+//     return function curried(...args) {
+//           nums = [...nums,...args];
         
-//          Checking if the arguments in a function are the same.
-        if( fn.length === nums.length){
+// //          Checking if the arguments in a function are the same.
+//         if( fn.length === nums.length){
             
-            const res =  fn(...nums);
-            // CLEAN UP.
-             nums = [];
+//             const res =  fn(...nums);
+//             // CLEAN UP.
+//              nums = [];
             
-            return res;
-        } else{
-            return curried; 
+//             return res;
+//         } else{
+//             return curried; 
             
             
-        }
-//     
+//         }
+// //     
 
-    };
+//     };
+//   SOLUTION TWO: recursive
+    return function curried(...args){
+//          BASE CASE
+        if(args.length === fn.length){
+             return fn(...args);
+            
+        } else{
+            return function(...newArgs){
+                    return curried(...args,...newArgs)  
+                
+           }
+        }
+        
+    }
+    
+    
+    
 };
 
 /**
